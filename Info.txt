@@ -1,0 +1,33 @@
+1. What is Emmet?
+Emmet is a web development tool that enables faster HTML and CSS coding by providing a shorthand syntax with 
+abbreviations and shortcuts to generate complex structures with ease.
+
+2. Difference between a Library and Framework?
+A library is a collection of functions or modules providing specific functionalities, allowing developers to 
+use only what they need. A framework is a more comprehensive toolset that provides a complete architecture, 
+conventions, and dictates the flow of control, guiding developers in building applications.
+
+3. What is CDN? Why do we use it?
+A CDN (Content Delivery Network) is a distributed network of servers located globally. It delivers web content, 
+like images and scripts, closer to users, improving performance, reducing server load, and increasing scalability for websites.
+
+4. Why is React known as React?
+React is known as "React" because it efficiently reacts to changes in data and updates the user interface (UI) 
+accordingly. The name emphasizes the library's core principle of reactive rendering and updating.
+
+5. What is crossorigin in script tag?
+`crossorigin` is an HTML attribute used in the `<script>` tag for loading external JavaScript files with 
+Cross-Origin Resource Sharing (CORS) requirements. It specifies how the browser should handle loading the 
+script from a different origin securely.
+
+6. Difference between react.development.js and react.production.js files via CDN?
+`react.development.js` is an unminified, larger version of React for development with helpful error messages.
+`react.production.js` is a minified, smaller version optimized for production, without error messages, improving performance for end-users.
+
+7. What is async and defer?
+`async` and `defer` are attributes used in the `<script>` tag to control how external JavaScript files are loaded and 
+executed in an HTML document. `async` allows the script to download asynchronously while the rest of the HTML content loads, 
+executing immediately after it's fetched. On the other hand, `defer` also loads the script asynchronously, but it ensures 
+the script is executed in order after the HTML document is fully parsed. The choice between `async` and `defer` depends on 
+whether the script has dependencies on other scripts or the DOM, determining when it should be executed during the 
+page loading process.
