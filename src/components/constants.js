@@ -1,7 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+export const LOGO_CDN_URL =
+  "https://st3.depositphotos.com/33133132/34690/v/450/depositphotos_346900052-stock-illustration-healthy-food-logo-template-vector.jpg";
 
-const restaurantList = [
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+
+export const restaurantList = [
   {
     type: "restaurant",
     data: {
@@ -1212,76 +1215,3 @@ const restaurantList = [
     subtype: "basic",
   },
 ];
-
-const Title = function () {
-  return (
-    <a href="/">
-      <img src="https://st3.depositphotos.com/33133132/34690/v/450/depositphotos_346900052-stock-illustration-healthy-food-logo-template-vector.jpg" />
-    </a>
-  );
-};
-
-const Header = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h2>{cuisines.join(", ")}</h2>
-      <h2>{avgRating + " Stars"}</h2>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="restaurant-list">
-      {restaurantList.map((restaurant) => {
-        return <RestaurantCard {...restaurant.data} />;
-      })}
-    </div>
-  );
-};
-
-const Footer = function () {
-  return (
-    <div className="footer">
-      <h4>Created By Prathviraj Khande</h4>
-      <strong>Eat Green</strong>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
