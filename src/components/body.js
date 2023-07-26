@@ -1,17 +1,39 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 import { restaurantList } from "./constants";
 import RestaurantCard from "./restaurantCard";
+import Shimmer from "./shimmer";
+import { SWIGGY_RESTAURANT_LINK } from "./constants";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  async function getRestaurants() {
+    const data = await fetch(`${SWIGGY_RESTAURANT_LINK}`);
+    const restaurantData = await data.json();
+
+    setRestaurants(
+      restaurantData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  }
 
   const filterData = (txt) => {
-    return restaurantList.filter((restaurant) => restaurant.data.name.includes(txt));
+    return restaurants.filter((restaurant) =>
+      restaurant?.info.name.includes(txt)
+    );
   };
 
-  return (
+  return restaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="seach-container" style={{ border: "2px solid gold" }}>
         <input
@@ -37,7 +59,9 @@ const Body = () => {
 
       <div className="restaurant-list">
         {restaurants.map((restaurant) => {
-          return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
+          return (
+            <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
+          );
         })}
       </div>
     </>

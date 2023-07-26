@@ -1,44 +1,68 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid white;
-    padding: 10px;
-    color: greenyellow;
-
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 10px;
+  color: greenyellow;
 }
 
 .header > a > img {
-    width: 100px;
-    border: 5px solid green;
+  width: 100px;
+  border: 5px solid green;
 }
-.nav-items > ul{
-    list-style-type: none;
-    display: flex;
-}
-
-.nav-items > ul >li {
-    padding: 10px;
+.nav-items > ul {
+  list-style-type: none;
+  display: flex;
 }
 
-.card{
-    width: 200px;
-    border: 1px solid green;
-    padding: 10px;
-    margin: 10px;
+.nav-items > ul > li {
+  padding: 10px;
 }
 
-.card > img{
-    width: 100%
+.card {
+  width: 200px;
+  border: 1px solid gold;
+  padding: 10px;
+  margin: 10px;
 }
 
-.restaurant-list{
-    border: 1px solid white;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    color: aliceblue;
+.card > img {
+  width: 100%;
 }
 
-.footer{
-    color: aliceblue;
+.restaurant-list {
+  border: 1px solid white;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  color: aliceblue;
+}
+
+.footer {
+  color: aliceblue;
+}
+
+.shimmer-div {
+  border: 1px solid gold;
+  width: 32%;
+  height: 30vh;
+  margin: 8px;
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    grey 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerAnimation 2s linear infinite;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }
