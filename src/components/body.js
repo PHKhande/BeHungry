@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { restaurantList } from "./constants";
 import RestaurantCard from "./restaurantCard";
 import Shimmer from "./shimmer";
 import { SWIGGY_RESTAURANT_LINK } from "./constants";
@@ -10,6 +9,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [filtered, setFiltered] = useState(false);
 
   useEffect(() => {
     getRestaurants();
@@ -50,7 +50,7 @@ const Body = () => {
           className="search-btn"
           style={{ padding: "10px" }}
           onClick={() => {
-            setRestaurants(filterData(searchText));
+            setFilteredRestaurants(filterData(searchText));
           }}
         >
           Search

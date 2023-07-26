@@ -1,4 +1,6 @@
 import { LOGO_CDN_URL } from "./constants";
+import { useState } from "react";
+
 
 const Title = function () {
   return (
@@ -9,6 +11,8 @@ const Title = function () {
 };
 
 const Header = () => {
+const [authenticatedUser, setAuthenticatedUser] = useState(true);
+
   return (
     <div className="header">
       <Title />
@@ -20,6 +24,10 @@ const Header = () => {
           <li>Cart</li>
         </ul>
       </div>
+
+      {
+        authenticatedUser ? <button onClick={() => {setAuthenticatedUser(false)}}> Logout </button> : <button onClick={() => {setAuthenticatedUser(true)}} > Login </button>
+      }
     </div>
   );
 };
