@@ -1,6 +1,7 @@
 import { LOGO_CDN_URL } from "../Constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../../hooks/useOnline";
 
 const Title = function () {
   return (
@@ -12,6 +13,8 @@ const Title = function () {
 
 const Header = () => {
   const [authenticatedUser, setAuthenticatedUser] = useState(true);
+
+  const isOnline = useOnline();
 
   return (
     <div className="header">
@@ -30,9 +33,12 @@ const Header = () => {
           <li>
             <Link to="/cart">Cart</Link>
           </li>
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
         </ul>
       </div>
-
+      {isOnline ? <h1>🟢</h1> : <h1>🔴</h1>}
       {authenticatedUser ? (
         <button
           onClick={() => {

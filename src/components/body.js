@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { SWIGGY_RESTAURANT_LINK } from "../Constants";
+import { filterData } from "../../util/helper";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -24,11 +25,10 @@ const Body = () => {
     );
   }
 
-  const filterData = (txt) => {
-    return restaurants.filter((restaurant) =>
-      restaurant?.info.name.includes(txt)
-    );
-  };
+
+    // if allRestaurants are empty don't render restaurants cards
+    if (!restaurants) return null;
+
 
   return restaurants?.length === 0 ? (
     <Shimmer />
