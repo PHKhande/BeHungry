@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Profile from "./profile";
+import Profile from "./Profile";
 import { Component } from "react";
 
 class About extends Component {

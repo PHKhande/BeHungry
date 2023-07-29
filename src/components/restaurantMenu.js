@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { SWIGGY_RESTAURANT_MENU_LINK } from "../constants";
-import { IMG_CDN_URL } from "../constants";
-import Shimmer from "./shimmer";
+import { SWIGGY_RESTAURANT_MENU_LINK } from "../Constants";
+import { IMG_CDN_URL } from "../Constants";
+import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
   const [restaurant, setRestaurant] = useState(null);

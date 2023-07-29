@@ -1,4 +1,4 @@
-import { LOGO_CDN_URL } from "../constants";
+import { LOGO_CDN_URL } from "../Constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import RestaurantCard from "./restaurantCard";
-import Shimmer from "./shimmer";
-import { SWIGGY_RESTAURANT_LINK } from "../constants";
+import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
+import { SWIGGY_RESTAURANT_LINK } from "../Constants";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
