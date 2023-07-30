@@ -9,3 +9,6 @@ export const SWIGGY_RESTAURANT_LINK =
 
 export const SWIGGY_RESTAURANT_MENU_LINK =
   "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&&submitAction=ENTER&restaurantId=";
+
+export const BACKGROUND_IMAGE =
+  "https://img.freepik.com/premium-photo/black-stone-cooking-background-spices-vegetables-top-view-free-space-your-text_187166-3514.jpg?w=1060";

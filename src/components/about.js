@@ -25,9 +25,9 @@ class About extends Component {
 
   render() {
     return (
-      <div style={{ color: "white" }}>
-        <h1>About Us </h1>
-        <p> Food is Great</p>
+      <div className="bg-purple-300 m-5 border border-purple-800 rounded-md">
+        <h1 className="p-2">About Us </h1>
+        <p className="p-2"> Food is Great</p>
         <Profile name={"Prathvi"} />
       </div>
     );

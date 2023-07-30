@@ -6,7 +6,7 @@ import useOnline from "../../hooks/useOnline";
 const Title = function () {
   return (
     <Link to="/">
-      <img src={`${LOGO_CDN_URL}`} />
+      <img className="w-24 p-2" src={`${LOGO_CDN_URL}`} />
     </Link>
   );
 };
@@ -17,30 +17,30 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="header">
+    <div className="flex justify-between m-5 bg-purple-300 border border-purple-800 rounded-md">
       <Title />
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex py-6">
+          <li className="p-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/cart">Cart</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/instamart">Instamart</Link>
           </li>
         </ul>
       </div>
-      {isOnline ? <h1>🟢</h1> : <h1>🔴</h1>}
+      {isOnline ? <h1 className="py-8">🟢</h1> : <h1 className="py-8">🔴</h1>}
       {authenticatedUser ? (
-        <button
+        <button className="border border-black p-2 m-2 rounded-xl"
           onClick={() => {
             setAuthenticatedUser(false);
           }}
@@ -48,7 +48,7 @@ const Header = () => {
           Logout
         </button>
       ) : (
-        <button
+        <button className="border border-black p-2 m-2 rounded-xl"
           onClick={() => {
             setAuthenticatedUser(true);
           }}

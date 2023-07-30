@@ -15,6 +15,7 @@ import Shimmer from "./components/Shimmer";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+
   return (
     <>
       <Header />

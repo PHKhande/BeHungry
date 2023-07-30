@@ -25,11 +25,11 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Profile Class Component</h1>
-        <h1>{this.props.name}</h1>
-        <h1>{this.state.name}</h1>
-        <img src={this.state.img} />
+      <div className="flex border border-purple-800 justify-center m-3 rounded-md">
+        <h1 className="p-2 border border-purple-800 m-2">Profile Class Component</h1>
+        <h1 className="p-2 border border-purple-800 m-2">{this.props.name}</h1>
+        <h1 className="p-2 border border-purple-800 m-2">{this.state.name}</h1>
+        <img className="w-32 m-2" src={this.state.img} />
 
         {/* setting state */}
         {/* <button
