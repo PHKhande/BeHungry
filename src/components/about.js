@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
 import Profile from "./Profile";
 import { Component } from "react";
+import UserContext from "../../util/UserContext";
 
 class About extends Component {
   constructor(props) {
@@ -29,6 +29,16 @@ class About extends Component {
         <h1 className="p-2">About Us </h1>
         <p className="p-2"> Food is Great</p>
         <Profile name={"Prathvi"} />
+
+        <div className="flex border border-purple-800 justify-center m-3 rounded-md">
+          <UserContext.Consumer>
+            {({ user }) => (
+              <h4 className="italic p-2">
+                Current User {user.name} - {user.email}
+              </h4>
+            )}
+          </UserContext.Consumer>
+        </div>
       </div>
     );
   }

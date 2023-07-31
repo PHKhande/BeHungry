@@ -1,7 +1,10 @@
 import { LOGO_CDN_URL } from "../Constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../../hooks/useOnline";
+import UserContext from "../../util/UserContext";
+
+
 
 const Title = function () {
   return (
@@ -13,8 +16,8 @@ const Title = function () {
 
 const Header = () => {
   const [authenticatedUser, setAuthenticatedUser] = useState(true);
-
   const isOnline = useOnline();
+  const {user} = useContext(UserContext);
 
   return (
     <div className="flex justify-between m-5 bg-purple-300 border border-purple-800 rounded-md">
@@ -36,9 +39,12 @@ const Header = () => {
           <li className="p-2">
             <Link to="/instamart">Instamart</Link>
           </li>
+          <li className="p-2">
+            <Link to="/trying">Trying...</Link>
+          </li>
         </ul>
       </div>
-      {isOnline ? <h1 className="py-8">🟢</h1> : <h1 className="py-8">🔴</h1>}
+      {isOnline ? <h1 className="py-8">{user.name}🟢</h1> : <h1 className="py-8">{user.name}🔴</h1>}
       {authenticatedUser ? (
         <button className="border border-black p-2 m-2 rounded-xl"
           onClick={() => {

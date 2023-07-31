@@ -1,34 +1,16 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { SWIGGY_RESTAURANT_LINK } from "../Constants";
-import { filterData } from "../../util/helper";
+import useFetchRestaurant from "../../hooks/useFetchRestaurants";
 
 const Body = () => {
-  const [searchText, setSearchText] = useState("");
-  const [restaurants, setRestaurants] = useState([]);
 
-  useEffect(() => {
-    getRestaurants();
-  }, []);
+  //Using personal hook
+  const restaurants = useFetchRestaurant();
 
-  async function getRestaurants() {
-    const data = await fetch(`${SWIGGY_RESTAURANT_LINK}`);
-    const restaurantData = await data.json();
-
-    setRestaurants(
-      restaurantData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  }
-
-
-    // if allRestaurants are empty don't render restaurants cards
-    if (!restaurants) return null;
-
+  // if allRestaurants are empty don't render restaurants cards
+  if (!restaurants) return null;
 
   return restaurants?.length === 0 ? (
     <Shimmer />
@@ -39,15 +21,13 @@ const Body = () => {
           type="text"
           className="focus:bg-fuchsia-600 p-2 text-white"
           placeholder="Search for restaurants..."
-          value={searchText}
+          value={"Search..."}
           onChange={(e) => {
-            setSearchText(e.target.value);
           }}
         />
         <button
           className="bg-rose-600 text-white mx-2 rounded-lg p-2"
           onClick={() => {
-            setFilteredRestaurants(filterData(searchText));
           }}
         >
           Search
