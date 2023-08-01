@@ -40,7 +40,7 @@ const RestaurantMenu = () => {
       <div className=" w-4/5 p-3 m-5">
         {menuItems.map((item) => {
           return (
-            <div className="flex justify-between p-3 m-5 bg-purple-200 shadow-xl rounded-md">
+            <div className="flex justify-between p-3 m-5 bg-purple-200 shadow-xl rounded-md" key={item.id}>
               <div className="w-4/6 m-1">
                 <h1 className="font-bold"> {item.name} </h1>
                 {item.isVeg ? <h1>🟢</h1> : <h1>🔴</h1>}
@@ -53,7 +53,7 @@ const RestaurantMenu = () => {
                 />
                 <button
                   className="border border-purple-950 p-2 mt-3 rounded-lg text-white bg-red-600"
-                  onClick={(item) => {
+                  onClick={() => {
                     dispatch(addItem(item));
                   }}
                 >
