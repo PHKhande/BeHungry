@@ -1,11 +1,11 @@
-import React, { lazy, Suspense, useContext, useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-// import About from "./components/About";
 import ContactUs from "./components/Conatct";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
@@ -13,6 +13,7 @@ import Error from "./components/Error";
 import Shimmer from "./components/Shimmer";
 import UserContext from "../util/UserContext";
 import Trying from "./components/Trying";
+import store from "../redux/store";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
@@ -24,13 +25,13 @@ const AppLayout = () => {
   });
 
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <Header />
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
