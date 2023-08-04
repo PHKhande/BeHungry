@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
     <Shimmer />
   ) : (
     <div className="flex border border-purple-800 p-3 m-5 bg-purple-200 shadow-xl rounded-md">
-      <div className="flex flex-col items-center border  p-3 w-1/5 m-5 h-96 bg-purple-200 shadow-xl rounded-md ">
+      <div  className="flex flex-col items-center border  p-3 w-1/5 m-5 h-96 bg-purple-200 shadow-xl rounded-md ">
         <h1 className="italic my1">{"Restaurant Info."}</h1>
         <h1 className="font-bold my-1 text-purple-950 ">{restaurant?.name}</h1>
         <img
@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
         </button>
       </div>
 
-      <div className=" w-4/5 p-3 m-5">
+      <div data-testid="menu-box" className=" w-4/5 p-3 m-5">
         {menuItems.map((item) => {
           return (
             <div className="flex justify-between p-3 m-5 bg-purple-200 shadow-xl rounded-md" key={item.id}>

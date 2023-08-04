@@ -18,6 +18,7 @@ const Body = () => {
     <>
       <div className="bg-purple-300 p-2 m-5 border border-purple-800 rounded-md">
         <input
+        data-testid="search-input"
           type="text"
           className="focus:bg-fuchsia-600 p-2 text-white"
           placeholder="Search for restaurants..."
@@ -25,7 +26,7 @@ const Body = () => {
           onChange={(e) => {
           }}
         />
-        <button
+        <button data-testid= "search-button"
           className="bg-rose-600 text-white mx-2 rounded-lg p-2"
           onClick={() => {
           }}
@@ -34,7 +35,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-evenly bg-purple-300 m-5 border border-purple-800 rounded-md">
+      <div data-testid="rest-list" className="flex flex-wrap justify-evenly bg-purple-300 m-5 border border-purple-800 rounded-md">
         {restaurants?.map((restaurant) => {
           return (
             <Link

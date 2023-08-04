@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import useOnline from "../../hooks/useOnline";
 import UserContext from "../../util/UserContext";
 import {useSelector} from "react-redux";
+import Logo from "../assests/images/Logo.png"
 
 
 
 const Title = function () {
   return (
     <Link to="/">
-      <img className="w-24 p-2" src={`${LOGO_CDN_URL}`} />
+      <img data-testid="logo" className="w-24 p-2" src={Logo} />
+      {/* <img data-testid="logo" className="w-24 p-2" src={`${LOGO_CDN_URL}`} /> */}
     </Link>
   );
 };
@@ -36,7 +38,7 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li className="p-2">
-            <Link to="/cart">Cart {[itemsCount]}</Link>
+            <Link data-testid="cart" to="/cart">Cart {[itemsCount]}</Link>
           </li>
           <li className="p-2">
             <Link to="/instamart">Instamart</Link>
@@ -46,7 +48,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      {isOnline ? <h1 className="py-8">{user.name}🟢</h1> : <h1 className="py-8">{user.name}🔴</h1>}
+      {isOnline ? <h1 data-testid="online-status" className="py-8">{user.name}🟢</h1> : <h1 className="py-8">{user.name}🔴</h1>}
       {authenticatedUser ? (
         <button className="border border-black p-2 m-2 rounded-xl"
           onClick={() => {
