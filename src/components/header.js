@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../../hooks/useOnline";
 import UserContext from "../../util/UserContext";
 import {useSelector} from "react-redux";
-import Logo from "../assests/images/Logo.png"
+import Logo from "../../assests/images/Logo.png"
 
 
 
